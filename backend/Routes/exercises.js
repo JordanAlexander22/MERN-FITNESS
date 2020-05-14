@@ -30,6 +30,7 @@ router.route('/add').post((req, res) => {
 router.route('/:id').get((req, res) => {
   Exercise.findById(req.params.id)
   .then(exercise => res.json(exercise))
+  console.log(exercise)
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -42,7 +43,7 @@ router.route('/:id').delete((req, res) => {
 });
 
 // update an exercise
-router.route('update/:id').post((req, res) => {
+router.route('/update/:id').post((req, res) => {
   Exercise.findById(req.params.id)
   then(exercise => {
     exercise.username = req.body.username;
