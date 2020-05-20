@@ -1,11 +1,52 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-
+import React, { Component } from 'react';
 
 export default class CreateUser extends Component {
-    render() {
-        return (
-           <h1>CreateUser component</h1>
-        )
-    }
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			username: ''
+		};
+	}
+
+	handleUsername = (e) => {
+		this.setState({ username: e.target.value });
+	};
+
+	onSubmit = (e) => {
+		e.preventDefault();
+
+		const newUser = {
+			username: this.state.username
+		};
+
+		console.log(newUser);
+
+		this.setState({
+			username: ''
+		});
+	};
+
+	render() {
+		return (
+			<div>
+				<h3>Create New User</h3>
+				<form onSubmit={this.onSubmit}>
+					<div className="form-group">
+						<label>Username: </label>
+						<input
+							type="text"
+							required
+							className="form-control"
+							value={this.state.username}
+							onChange={this.handleUsername}
+						/>
+					</div>
+					<div className="form-group">
+						<input type="submit" value="Create User" className="btn-btn-primary" />
+					</div>
+				</form>
+			</div>
+		);
+	}
 }

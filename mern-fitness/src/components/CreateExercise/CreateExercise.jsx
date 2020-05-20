@@ -6,7 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 export default class CreateExercise extends Component {
 	constructor(props) {
 		super(props);
-
+		//all of the state being manipulated for this component
 		this.state = {
 			username: '',
 			description: '',
@@ -18,6 +18,7 @@ export default class CreateExercise extends Component {
 
 	componentDidMount() {
 		this.setState({
+			// simple test to check form functionality
 			users: [ 'test user', 'test user1' ],
 			username: 'test user'
 		});
@@ -51,12 +52,11 @@ export default class CreateExercise extends Component {
 			description: this.state.description,
 			duration: this.state.duration,
 			date: this.state.date
-        };
-        
-        console.log(exercise);
+		};
+		//sanity check
+		console.log(exercise);
 
-        // window.location = '/';
-
+		window.location = '/';
 	};
 
 	render() {
